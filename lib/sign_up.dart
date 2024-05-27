@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'home_screen.dart'; // Replace with your home screen file
+import 'login_screen.dart'; // Import your login screen file
 
 class SignUpScreen extends StatefulWidget {
   @override
@@ -19,10 +19,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
         password: _passwordController.text.trim(),
       );
       // Signup successful
-      // Optionally, you can navigate to the home screen after signup
+      // Navigate to login screen
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => HomeScreen()),
+        MaterialPageRoute(builder: (context) => LoginScreen()),
       );
     } on FirebaseAuthException catch (e) {
       // Signup failed
@@ -60,17 +60,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
               controller: _passwordController,
               decoration: InputDecoration(
                 labelText: 'Password',
-                border: OutlineInputBorder(),
-                filled: true,
-                fillColor: Colors.grey[200],
-              ),
-              obscureText: true,
-            ),
-            SizedBox(height: 12),
-            TextField(
-              controller: _passwordController,
-              decoration: InputDecoration(
-                labelText: 'Re_Enter',
                 border: OutlineInputBorder(),
                 filled: true,
                 fillColor: Colors.grey[200],
